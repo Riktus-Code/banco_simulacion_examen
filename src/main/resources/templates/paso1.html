@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action="@{/transferencia/transferir/paso1}" th:object="${paso1DTO}">
+        <label>Elija la cuenta de origen</label>
+        <select th:field="*{cuentaOrigenId}" id="cuentaOrigenId" required>
+            <option value="">Selecciones la cuenta</option>
+            <option th:each="c : ${cuentas}" th:value="${c.id}" th:text="${c.iban}"></option>
+        </select>
+        <div th:if="${#fields.hasErrors('cuentaOrigenId')}" th:errors="*{cuentaOrigenId}"></div>
+        <br>
+        <label>Nombre beneficiario</label>
+        <input th:field="${transferencia.nombreBeneficiario}">
+        <br>
+        <label>Iban destinatario</label>
+        <input type="text" th:field="*{ibanDestino}">
+        <div th:if="${#fields.hasErrors('ibanDestino')}" th:errors="*{ibanDestino}"></div>
+        <label>Importe:</label>
+        <input th:field="*{importe}" id="importe" required min="1">
+        <div th:if="${#fields.hasErrors('importe')}" th:errors="*{importe}"></div>
+        <br>
+        <label>Concepto:</label>
+        <input type="text" th:field="${transferencia.concepto}" >
+
+        <br>
+        <label>Fecha Programada</label>
+        <input type="datetime-local" th:field="*{fechaProgramada}" id="fechaProgramada" required>
+        <div th:if="${#fields.hasErrors('fechaProgramada')}" th:errors="*{fechaProgramada}"></div>
+        <br>
+        <button>Siguiente</button>
+    </form>
+</body>
+</html>
