@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action="@{/transferencia/borrar}" th:object="${transferencia}">
+        <h1>¿Deseas eliminar esta transferencia?</h1>
+        <label>Cuenta origen</label><span th:object="${transferencia.cuentaOrigenId}"></span>
+        <label>Nombre beneficiario</label><span th:text="${transferencia.nombreBeneficiario}"></span>
+        <label>Iban destino</label><span th:text="${transferencia.ibanDestino}"></span>
+        <label>Importe</label><span th:text="${transferencia.importe}"></span>
+        <button>Borrar definitivamente</button>
+    </form>
+</body>
+</html>

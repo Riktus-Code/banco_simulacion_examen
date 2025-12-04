@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/transferencia/editar}" th:object="${transferencia}">
+    <label>Cuenta origen</label>
+    <input th:field="*{cuentaOrigenId}">
+    <label>NOmbre beneficiario</label>
+    <input th:field="*{nombreBeneficiario}">
+    <label>Iban destino</label>
+    <input th:field="*{ibanDestino}">
+    <label>importe</label>
+    <input th:field="*{importe}">
+    <label>Concepto</label>
+    <input th:field="*{concepto}">
+    <label>Fecha Programada</label>
+    <input type="datetime-local" th:field="*{fechaProgramada}">
+    <label>Fecha creacion</label>
+    <input type="datetime-local" th:field="*{fechaCreacion}">
+    <label>Estado </label>
+    <input th:field="*{estado}">
+    <button>Editar</button>
+</form>
+
+</body>
+</html>

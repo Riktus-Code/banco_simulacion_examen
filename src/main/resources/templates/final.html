@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Transferencia programada correctamente</h1>
+<label>Referencia:</label><span th:text="${transferencia.id}"></span>
+<br>
+<label>Cuenta origen:</label><span th:text="${cuenta.iban}"></span>
+<br>
+<label>Beneficiario:</label><span th:text="${transferencia.nombreBeneficiario}"></span>
+<br>
+<label>Iban de destino:</label><span th:text="${transferencia.ibanDestino}"></span>
+<br>
+<label>Importe:</label><span th:text="${transferencia.importe}"></span>
+<br>
+<label>Concepto:</label><span th:text="${transferencia.concepto}"></span>
+<br>
+<label>Fecha de ejecucion prevista:</label><span th:text="${transferencia.fechaProgramada}"></span>
+<br>
+
+<a th:href="@{/transferencia/transferir/paso1}"><button type="button">Programar nueva transferencia</button></a>
+</body>
+</html>

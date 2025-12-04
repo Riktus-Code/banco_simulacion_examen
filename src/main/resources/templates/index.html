@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/transferencia/transferir/paso1}"><button type="button">Añadir Trans</button></a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Cuenta origen</th>
+            <th>Beneficiario</th>
+            <th>Iban destino</th>
+            <th>Fecha programada</th>
+            <th>Importe</th>
+            <th>Estado</th>
+        </tr>
+        <tr th:each="t:${transferencias}">
+            <td th:text="${t.id}"></td>
+            <td th:text="${t.cuentaOrigenId}"></td>
+            <td th:text="${t.nombreBeneficiario}"></td>
+            <td th:text="${t.ibanDestino}"></td>
+            <td th:text="${t.fechaProgramada}"></td>
+            <td th:text="${t.importe}"></td>
+            <td th:text="${t.estado}"></td>
+            <td>
+                <a th:href="@{'/transferencia/editar/' + ${t.id}}"><button type="button">Editar</button></a>
+                <a th:href="@{'/transferencia/borrar/' + ${t.id}}"><button type="button">Borrar</button></a>
+
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
